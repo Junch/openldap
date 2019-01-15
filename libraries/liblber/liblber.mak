@@ -157,7 +157,7 @@ OUTDIR=.\x64\Release
 INTDIR=.\x64\Release
 DS_POSTBUILD_DEP=$(INTDIR)\postbld.dep
 INCLUDEPATH= /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt" /I "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include" /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\um" /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\shared"
-LIBPATH= "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\ws2_32.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\msvcrt.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\oldnames.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\vcruntime.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\ucrt\x64\ucrt.lib"
+LIBPATH= "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\ws2_32.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\msvcrt.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\oldnames.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\vcruntime.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\ucrt\x64\ucrt.lib"
 
 ALL : "$(OUTDIR)\liblber.dll" "$(DS_POSTBUILD_DEP)"
 

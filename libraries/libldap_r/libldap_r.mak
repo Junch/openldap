@@ -413,7 +413,7 @@ INTDIR=.\x64\Release
 DS_POSTBUILD_DEP=$(INTDIR)\postbld.dep
 INCLUDEPATH= /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt" /I "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include" /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\um" /I "C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\shared"
 INCLUDESSLPATH= /I "C:\OpenSSL\include"
-LIBNEEDPATH= "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\ws2_32.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\msvcrt.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\oldnames.lib" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\lib\x64\vcruntime.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\ucrt\x64\ucrt.lib"
+LIBNEEDPATH= "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\kernel32.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\um\x64\ws2_32.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\msvcrt.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\\oldnames.lib" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\amd64\\vcruntime.lib" "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.16299.0\ucrt\x64\ucrt.lib"
 LIBSSLPATH="C:\OpenSSL\lib\ssleay32.lib" "C:\OpenSSL\lib\libeay32.lib"
 
 ALL : "$(OUTDIR)\libldap_r.dll" "$(DS_POSTBUILD_DEP)"
@@ -585,8 +585,8 @@ LINK32_OBJS= \
 	"$(INTDIR)\thr_nt.obj" \
 	"$(INTDIR)\thr_pth.obj" \
 	"$(INTDIR)\thr_stub.obj" \
-	"$(INTDIR)\thr_debug.obj" \
-	"$(INTDIR)\lbase64.obj"
+	"$(INTDIR)\thr_debug.obj" 
+    
 DEF_FILE=.\ldap_r.def
 
 "$(OUTDIR)\libldap_r.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)

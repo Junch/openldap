@@ -478,7 +478,6 @@ LIB32_OBJS= \
 	"$(INTDIR)\assertion.obj" \
 	"$(INTDIR)\deref.obj" \
 	"$(INTDIR)\ldif.obj" \
-	"$(INTDIR)\lbase64.obj" \
 	"$(INTDIR)\fetch.obj"
 
 "$(OUTDIR)\ldap.lib" : "$(OUTDIR)" $(DEF_FILE) $(LIB32_OBJS)

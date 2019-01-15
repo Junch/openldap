@@ -551,8 +551,7 @@ LIB32_OBJS= \
 	"$(INTDIR)\thr_nt.obj" \
 	"$(INTDIR)\thr_pth.obj" \
 	"$(INTDIR)\thr_stub.obj" \
-	"$(INTDIR)\thr_debug.obj" \
-	"$(INTDIR)\lbase64.obj"
+	"$(INTDIR)\thr_debug.obj" 
 
 "$(OUTDIR)\ldap_r.lib" : "$(OUTDIR)" $(DEF_FILE) $(LIB32_OBJS)
     $(LIB32) @<<
@@ -732,9 +731,8 @@ LIB32_OBJS= \
 	"$(INTDIR)\thr_nt.obj" \
 	"$(INTDIR)\thr_pth.obj" \
 	"$(INTDIR)\thr_stub.obj" \
-	"$(INTDIR)\thr_debug.obj" \
-	"$(INTDIR)\lbase64.obj" 
-
+	"$(INTDIR)\thr_debug.obj" 
+    
 "$(OUTDIR)\ldap_r.lib" : "$(OUTDIR)" $(DEF_FILE) $(LIB32_OBJS)
     $(LIB32) @<<
   $(LIB32_FLAGS) $(DEF_FLAGS) $(LIB32_OBJS)
