@@ -31,7 +31,7 @@ NULL=nul
 OUTDIR=.\Release
 INTDIR=.\Release
 DS_POSTBUILD_DEP=$(INTDIR)\postbld.dep
-
+INCLUDESASLPATH= /I "C:\cyrus-sasl\include"
 
 ALL : "$(OUTDIR)\liblber.dll" "$(DS_POSTBUILD_DEP)"
 
@@ -58,7 +58,7 @@ CLEAN :
     if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
 
 CPP=cl.exe
-CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "_WINDOWS" /D "LBER_LIBRARY" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\liblber_src" /FD /c 
+CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" $(INCLUDESASLPATH) /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "_WINDOWS" /D "LBER_LIBRARY" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\liblber_src" /FD /c 
 RSC=rc.exe
 RSC_PROJ=/l 0x409 /fo"$(INTDIR)\liblber.res" /I "./../../include" /d "NDEBUG"
 LINK32=link.exe

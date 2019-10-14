@@ -31,6 +31,10 @@ NULL=nul
 OUTDIR=.\Release
 INTDIR=.\Release
 DS_POSTBUILD_DEP=$(INTDIR)\postbld.dep
+INCLUDESSLPATH= /I "C:\OpenSSL\include"
+LIBSSLPATH="C:\OpenSSL\lib\ssleay32.lib" "C:\OpenSSL\lib\libeay32.lib"
+INCLUDESASLPATH= /I "C:\cyrus-sasl\include"
+LIBSASLPATH="C:\cyrus-sasl\lib\libsasl.lib"
 
 ALL : "$(OUTDIR)\libldap_r.dll" "$(DS_POSTBUILD_DEP)"
 
@@ -121,11 +125,11 @@ CLEAN :
     if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
 
 CPP=cl.exe
-CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" /I "./../libldap" /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "LDAP_LIBRARY" /D "LDAP_R_COMPILE" /D "LDAP_LIBS_DYNAMIC" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\libldap_r_src" /FD /c 
+CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" /I "./../libldap" $(INCLUDESSLPATH) $(INCLUDESASLPATH) /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "LDAP_LIBRARY" /D "LDAP_R_COMPILE" /D "LDAP_LIBS_DYNAMIC" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\libldap_r_src" /FD /c 
 RSC=rc.exe
 RSC_PROJ=/l 0x409 /fo"$(INTDIR)\libldap_r.res" /I "./../../include" /I "./../libldap" /d "NDEBUG"
 LINK32=link.exe
-LINK32_FLAGS=kernel32.lib ws2_32.lib liblber.lib libeay32.lib ssleay32.lib /LIBPATH:"../liblber/$(OUTDIR)" /nologo /subsystem:console /dll /incremental:no /pdb:"$(OUTDIR)\libldap_r.pdb" /debug /out:"$(OUTDIR)\libldap_r.dll" /def:"$(DEF_FILE)" /implib:"$(OUTDIR)\libldap_r.lib" /MACHINE:X86 /opt:ref 
+LINK32_FLAGS=kernel32.lib user32.lib gdi32.lib advapi32.lib ws2_32.lib liblber.lib $(LIBSSLPATH) $(LIBSASLPATH) /LIBPATH:"../liblber/$(OUTDIR)" /nologo /subsystem:console /dll /incremental:no /pdb:"$(OUTDIR)\libldap_r.pdb" /debug /out:"$(OUTDIR)\libldap_r.dll" /def:"$(DEF_FILE)" /implib:"$(OUTDIR)\libldap_r.lib" /MACHINE:X86 /opt:ref 
 LINK32_OBJS= \
 	"$(INTDIR)\bind.obj" \
 	"$(INTDIR)\open.obj" \

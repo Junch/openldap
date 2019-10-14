@@ -30,6 +30,8 @@ NULL=nul
 
 OUTDIR=.\LibR
 INTDIR=.\LibR
+INCLUDESSLPATH= /I "C:\OpenSSL\include"
+INCLUDESASLPATH= /I "C:\cyrus-sasl\include"
 
 ALL : "$(OUTDIR)\ldap.lib"
 
@@ -105,7 +107,7 @@ CLEAN :
     if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
 
 CPP=cl.exe
-CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "LDAP_LIBRARY" /Fo"$(INTDIR)\\" /Fd"$(OUTDIR)\ldap" /FD /c 
+CPP_PROJ=/nologo /MD /W3 /Zi /O2 /Oy- /I "./../../include" $(INCLUDESSLPATH) $(INCLUDESASLPATH) /D "_CRT_SECURE_NO_WARNINGS" /D "NDEBUG" /D "_WIN32" /D "WIN32" /D "WINNT" /D "_WINNT" /D "LDAP_LIBRARY" /Fo"$(INTDIR)\\" /Fd"$(OUTDIR)\ldap" /FD /c 
 RSC=rc.exe
 LIB32=link.exe -lib
 LIB32_FLAGS=/nologo /out:"$(OUTDIR)\ldap.lib" 
